@@ -1,0 +1,68 @@
+#include<stdio.h>
+#define m 50
+
+void main()
+{
+    int a[m][m],b[m][m],c[m][m];
+    int arow,acoloumn,brow,bcoloumn;
+    int i,j,k,sum=0;
+
+    //for first matrix//
+    printf("Enter the number of rows and coloumns of matrix a:\n");
+    scanf("%d %d",&arow,&acoloumn);
+
+    printf("Enter the elements of matrix a:\n");
+
+      for(i=0;i<arow;i++)
+      {
+          for(j=0;j<acoloumn;j++)
+          {
+              scanf("%d",&a[i][j]);
+          }
+      }
+      printf("\n");
+
+      //for second matrix//
+       printf("Enter the number of rows and coloumns of matrix b:\n");
+       scanf("%d %d",&brow,&bcoloumn);
+
+       if(acoloumn!=brow)
+        printf("multiplication of this two matrix is not possible..!!");
+
+       else
+       { printf("Enter the elements of matrix b:\n");
+           for(i=0;i<brow;i++)
+      {
+          for(j=0;j<bcoloumn;j++)
+          {
+              scanf("%d",&b[i][j]);
+          }
+      }
+      printf("\n");
+       }
+
+       //multiplication of two matrix//
+       for(i=0;i<arow;i++)
+       {
+           for(j=0;j<bcoloumn;j++)
+           {
+               for(k=0;k<brow;k++)
+               {
+                   sum+=a[i][k]*b[k][j];
+               }
+               c[i][j]=sum;
+               sum=0;
+           }
+       }
+
+       //product matrix//
+
+       for(i=0;i<arow;i++)
+       {
+          for(j=0;j<bcoloumn;j++)
+          {
+              printf("%d ",c[i][j]);
+          }
+          printf("\n");
+       }
+}
